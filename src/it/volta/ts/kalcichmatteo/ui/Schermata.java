@@ -15,7 +15,9 @@ public class Schermata extends JFrame {
 		this.setSize(800, 600);
 		this.setDefaultCloseOperation(EXIT_ON_CLOSE);
 		this.add(new Logo(), BorderLayout.NORTH);
-		this.add(new RicercaFile(), BorderLayout.WEST);
+		//this.add(new RicercaFile(), BorderLayout.WEST);
+		//this.add(new RicercaCartella(), BorderLayout.SOUTH);
+		this.add(Ricerca.ricerca(), BorderLayout.WEST);
 		this.setLocationRelativeTo(null);
 		//this.pack();
 		this.setVisible(true);

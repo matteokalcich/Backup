@@ -10,10 +10,11 @@ import javax.swing.JFileChooser;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import javax.swing.JSplitPane;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
 
-public class RicercaFile extends JPanel {
+public class RicercaCartella extends JPanel {
 
 	private JLabel filename;
 	private JTextField filepath;
@@ -23,23 +24,23 @@ public class RicercaFile extends JPanel {
 	private static final long serialVersionUID = 1L;
 
 	
-	public RicercaFile() {
+	public RicercaCartella() {
 		
 		this.setLayout(new BorderLayout());
 
 		
-		filename = new JLabel("Enter file name");
+		filename = new JLabel("Enter destination folder	");
 
 		this.add(filename, BorderLayout.NORTH);
 		
-		filepath = new JTextField("<path file>");
+		filepath = new JTextField("<path destination folder>");
 		this.add(filepath, BorderLayout.WEST);
 
 		fileField = new JLabel();
 
         this.add(fileField, BorderLayout.CENTER);
 
-		fileChooserButton = new JButton("Cerca File");
+		fileChooserButton = new JButton("Search folder");
 
         fileChooserButton.addActionListener((e) -> {
             JFileChooser fileChooser = new JFileChooser();
@@ -51,25 +52,27 @@ public class RicercaFile extends JPanel {
 
 		this.add(fileChooserButton, BorderLayout.EAST);
 
+		
+
 	}
 
-	public JPanel fileSearch() {
+	public JPanel dirSearch() {
 
 		this.setLayout(new BorderLayout());
 
 		
-		filename = new JLabel("Enter file name");
+		filename = new JLabel("Enter destination folder	");
 
 		this.add(filename, BorderLayout.NORTH);
 		
-		filepath = new JTextField("<path file>");
+		filepath = new JTextField("<path destination folder>");
 		this.add(filepath, BorderLayout.WEST);
 
 		fileField = new JLabel();
 
         this.add(fileField, BorderLayout.CENTER);
 
-		fileChooserButton = new JButton("Cerca File");
+		fileChooserButton = new JButton("Search folder");
 
         fileChooserButton.addActionListener((e) -> {
             JFileChooser fileChooser = new JFileChooser();
@@ -82,5 +85,6 @@ public class RicercaFile extends JPanel {
 		this.add(fileChooserButton, BorderLayout.EAST);
 
 		return this;
+
 	}
 }

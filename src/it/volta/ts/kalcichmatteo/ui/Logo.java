@@ -1,8 +1,6 @@
 package it.volta.ts.kalcichmatteo.ui;
 
-import java.awt.Color;
 import java.awt.FlowLayout;
-import java.awt.Image;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
