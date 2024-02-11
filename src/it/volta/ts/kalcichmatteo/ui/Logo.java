@@ -14,7 +14,7 @@ import javax.swing.border.EmptyBorder;
 public class Logo extends JPanel {
 
 	/**
-	 * 
+	 * This class create the logo from the file logo.jpg in the project folder
 	 */
 	private static final long serialVersionUID = 1L;
 
@@ -35,9 +35,8 @@ public class Logo extends JPanel {
 			e.printStackTrace();
 		}
 		
-		JLabel picLabel = new JLabel(new ImageIcon(myPicture));
 		this.setSize(myPicture.getWidth(), myPicture.getHeight());
-		this.add(picLabel);
+		this.add(new JLabel(new ImageIcon(myPicture)));
 		
 
 	}
