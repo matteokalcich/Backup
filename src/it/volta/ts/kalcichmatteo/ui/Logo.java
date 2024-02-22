@@ -15,9 +15,6 @@ import javax.swing.border.EmptyBorder;
 
 public class Logo extends JPanel {
 
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 1L;
 
 	public Logo() {
