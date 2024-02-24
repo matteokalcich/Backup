@@ -18,6 +18,7 @@ public class BackupUI extends JFrame {
 		//this.add(new JLabel("Benvenuti"), BorderLayout.AFTER_LINE_ENDS);
 		//this.add(new Welcome(), BorderLayout.NORTH);
 		this.add(Ricerca.ricerca(), BorderLayout.WEST);
+		this.add(new RightBackup(), BorderLayout.AFTER_LINE_ENDS);
 		this.setLocationRelativeTo(null);
 		//this.pack();
 		this.setVisible(true);
