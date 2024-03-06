@@ -17,8 +17,16 @@ public class BackupUI extends JFrame {
 		this.add(new Logo(), BorderLayout.NORTH);
 		//this.add(new JLabel("Benvenuti"), BorderLayout.AFTER_LINE_ENDS);
 		//this.add(new Welcome(), BorderLayout.NORTH);
-		this.add(Ricerca.ricerca(), BorderLayout.WEST);
-		this.add(new RightBackup(), BorderLayout.AFTER_LINE_ENDS);
+		Ricerca ricerca = new Ricerca();
+		this.add(ricerca.ricerca(), BorderLayout.WEST);
+		RightBackup rb = new RightBackup();
+		this.add(rb.paint(), BorderLayout.AFTER_LINE_ENDS);
+		JButton backup = new JButton("Backup");
+		this.add(backup, BorderLayout.PAGE_END);
+		backup.addActionListener((e) -> {
+
+			ricerca.creaFile();
+		});
 		this.setLocationRelativeTo(null);
 		//this.pack();
 		this.setVisible(true);

@@ -3,6 +3,9 @@ package it.volta.ts.kalcichmatteo.ui;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
+import java.awt.Font;
+import java.io.File;
+
 import javax.swing.JButton;
 import javax.swing.JFileChooser;
 import javax.swing.JLabel;
@@ -14,14 +17,10 @@ public class RicercaFile extends JPanel {
 	private JLabel filename;
 	private JLabel filepath;
 	private JButton fileChooserButton;
+	private int returnVal;
+	private JFileChooser fileChooser;
 	
 	private static final long serialVersionUID = 1L;
-
-	
-	public RicercaFile() {
-		
-		fileSearch();
-	}
 
 	public JPanel fileSearch() {
 
@@ -40,15 +39,34 @@ public class RicercaFile extends JPanel {
 
         fileChooserButton.addActionListener((e) -> {
         	
-        	JFileChooser fileChooser = new JFileChooser();
-            
-        	fileChooser.setFileSelectionMode(JFileChooser.FILES_ONLY);
-            int response = fileChooser.showOpenDialog(null);
+        	fileChooser = new JFileChooser();
+
+			fileChooser.setFileSelectionMode(JFileChooser.FILES_ONLY);
+
+			returnVal = fileChooser.showOpenDialog(this);
+
+			file();	
 
         });
 
 		this.add(fileChooserButton, BorderLayout.EAST);
 
 		return this;
+	}
+
+	public File file() {
+
+		if(returnVal == JFileChooser.APPROVE_OPTION) {
+
+			File path=fileChooser.getSelectedFile();
+			filepath.setText(fileChooser.getSelectedFile().toString());
+			return path;
+
+		} else {
+
+			return null;
+		}
+
+
 	}
 }

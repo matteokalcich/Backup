@@ -2,6 +2,7 @@ package it.volta.ts.kalcichmatteo.ui;
 
 import java.awt.BorderLayout;
 import java.awt.Dimension;
+import java.io.File;
 
 import javax.swing.JButton;
 import javax.swing.JFileChooser;
@@ -14,6 +15,7 @@ public class RicercaCartella extends JPanel {
 	private JLabel filename;
 	private JLabel filepath;
 	private JButton fileChooserButton;
+	private JFileChooser fileChooser;
 	
 	private static final long serialVersionUID = 1L;
 
@@ -39,16 +41,25 @@ public class RicercaCartella extends JPanel {
 
         fileChooserButton.addActionListener((e) -> {
             
-        	JFileChooser fileChooser = new JFileChooser();
-            
-        	fileChooser.setFileSelectionMode(JFileChooser.FILES_ONLY);
-            int response = fileChooser.showOpenDialog(null);
+        	fileChooser = new JFileChooser();	
+			fileChooser.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
+        	fileChooser.showSaveDialog(null);
+
+			pathDir();
             
         });
 
 		this.add(fileChooserButton, BorderLayout.EAST);
 
 		return this;
+
+	}
+
+	public String pathDir() {
+
+		filepath.setText(fileChooser.getSelectedFile().toString());
+
+		return fileChooser.getSelectedFile().toString();
 
 	}
 }

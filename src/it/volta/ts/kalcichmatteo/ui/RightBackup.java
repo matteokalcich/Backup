@@ -7,36 +7,35 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
+import javax.swing.JFileChooser;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
-public class RightBackup extends JPanel {
+public class RightBackup {
 
-    private JButton backupButton;
-    private JLabel backupLabel;
+    private static JButton backupButton;
+    private static JLabel backupLabel;
     
-    public RightBackup() {
+    public JPanel paint() {
 
-        this.setLayout(new BorderLayout());
+        JPanel pn = new JPanel();
 
-        this.backupButton = new JButton("Backup!");
-        this.backupButton.setBackground(Color.BLUE);
+        pn.setLayout(new BorderLayout());
 
-        this.backupButton.addActionListener(new ActionListener() {
+        backupButton = new JButton("Delete!");
+        backupButton.setBackground(new Color(255, 255, 255));
 
-            @Override
-            public void actionPerformed(ActionEvent arg0) {
-                
-                //JOptionPane.showMessageDialog(this);
+        backupButton.addActionListener((e) -> {
 
-                System.out.println("Nothing yet!");
-            }
+            JOptionPane.showMessageDialog(pn, "Opzione non ancora disponibile, stiamo lavorando per risolvere il problema");
         });
 
-        this.backupLabel = new JLabel("Area Backup");
+        backupLabel = new JLabel("Area Backup");
 
-        this.add(backupButton, BorderLayout.NORTH);
-        this.add(backupLabel, BorderLayout.CENTER);
+        pn.add(backupButton, BorderLayout.NORTH);
+        pn.add(backupLabel, BorderLayout.CENTER);
+
+        return pn;
     }
 }
