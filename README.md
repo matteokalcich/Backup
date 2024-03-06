@@ -1,1 +1,1 @@
-A simple gui interface implemented with java swing for file research
+A simple gui interface implemented with java swing for file backup
