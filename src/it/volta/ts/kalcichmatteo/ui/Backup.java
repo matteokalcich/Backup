@@ -2,6 +2,7 @@ package it.volta.ts.kalcichmatteo.ui;
 
 import java.io.File;
 import java.io.IOException;
+import java.nio.file.Path;
 
 public class Backup {
 
@@ -12,7 +13,7 @@ public class Backup {
 
         String fileName = file.getName();
         String[] data = fileName.split("\\.");
-        data[1] = ".bck";
+        data[1] = ".bkp";
 
         String newFileName = data[0] + data[1];
 
@@ -33,7 +34,7 @@ public class Backup {
 
     }    
 
-    public static void deleteFile(String path) {
+    private static void deleteFile(String path) {
 
 
         File f = new File(path);
