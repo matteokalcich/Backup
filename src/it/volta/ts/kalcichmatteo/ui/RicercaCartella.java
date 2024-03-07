@@ -13,7 +13,7 @@ import javax.swing.JTextField;
 public class RicercaCartella extends JPanel {
 
 	private JLabel filename;
-	private JLabel filepath;
+	private JTextField filepath;
 	private JButton fileChooserButton;
 	private JFileChooser fileChooser;
 	
@@ -33,7 +33,8 @@ public class RicercaCartella extends JPanel {
 
 		this.add(filename, BorderLayout.NORTH);
 		
-		filepath = new JLabel("<path destination folder>");
+		filepath = new JTextField("<path destination folder>");
+		filepath.setEditable(false);
 		filepath.setMinimumSize(new Dimension(100, 100));
 		this.add(filepath, BorderLayout.WEST);
 

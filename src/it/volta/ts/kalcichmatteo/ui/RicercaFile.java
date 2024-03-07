@@ -15,7 +15,7 @@ import javax.swing.JTextField;
 public class RicercaFile extends JPanel {
 
 	private JLabel filename;
-	private JLabel filepath;
+	private JTextField filepath;
 	private JButton fileChooserButton;
 	private int returnVal;
 	private JFileChooser fileChooser;
@@ -31,7 +31,8 @@ public class RicercaFile extends JPanel {
 
 		this.add(filename, BorderLayout.NORTH);
 		
-		filepath = new JLabel("<path to the file>");
+		filepath = new JTextField("<path to the file>");
+		filepath.setEditable(false);
 		filepath.setMinimumSize(new Dimension(100, 100));
 		this.add(filepath, BorderLayout.WEST);
 

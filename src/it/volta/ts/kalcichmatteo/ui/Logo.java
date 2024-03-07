@@ -20,7 +20,7 @@ public class Logo extends JPanel {
 
 	public Logo() {
 		
-		this.setBorder(new EmptyBorder(5,5,5,5));
+		this.setBorder(new EmptyBorder(5, 5, 5, 5));
 		
 		this.setLayout(new FlowLayout(FlowLayout.LEFT));
 		
@@ -35,7 +35,6 @@ public class Logo extends JPanel {
 			e.printStackTrace();
 		}
 		
-		this.setSize(myPicture.getWidth(), myPicture.getHeight());
 		this.add(new JLabel(new ImageIcon(myPicture)));
 		
 
