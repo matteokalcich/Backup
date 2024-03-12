@@ -16,9 +16,14 @@ public class LeftPanel extends JPanel {
 
         this.setLayout(new GridLayout(2, 1));
 
+        JButton fileBtn = new JButton("Cerca file");
+        JButton dirBtn = new JButton("Cerca directory");
         this.add(fileComponent());
+        this.add(fileBtn);
 
         this.add(dirComponent());
+
+        this.add(dirBtn);
     }
 
     private JPanel fileComponent(){
