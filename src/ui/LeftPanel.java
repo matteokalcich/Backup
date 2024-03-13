@@ -1,9 +1,12 @@
 package ui;
 
 import javax.swing.*;
+import javax.swing.event.AncestorListener;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
-public class LeftPanel extends JPanel {
+public class LeftPanel extends JPanel implements ActionListener {
 
     private JLabel fileName;
     private JLabel dirName;
@@ -16,10 +19,10 @@ public class LeftPanel extends JPanel {
 
         this.setLayout(new GridLayout(2, 1));
 
-        JButton fileBtn = new JButton("Cerca file");
         JButton dirBtn = new JButton("Cerca directory");
         this.add(fileComponent());
-        this.add(fileBtn);
+
+        dirBtn.addActionListener(this);
 
         this.add(dirComponent());
 
@@ -30,7 +33,7 @@ public class LeftPanel extends JPanel {
 
         JPanel pan = new JPanel();
 
-        pan.setLayout(new FlowLayout(FlowLayout.LEFT));
+        pan.setLayout(new FlowLayout());
 
         this.fileName = new JLabel("Enter file name");
 
@@ -41,6 +44,10 @@ public class LeftPanel extends JPanel {
 
         pan.add(this.inputFileName);
 
+        JButton fileBtn = new JButton("Cerca file");
+        this.add(fileBtn);
+        fileBtn.addActionListener(this);
+
         return pan;
     }
 
@@ -49,7 +56,6 @@ public class LeftPanel extends JPanel {
         JPanel pan = new JPanel();
 
         this.dirName = new JLabel("Enter destination directory");
-
 
         pan.add(this.dirName);
 
@@ -63,4 +69,16 @@ public class LeftPanel extends JPanel {
     }
 
 
+    @Override
+    public void actionPerformed(ActionEvent e) {
+
+        if(e.getActionCommand().equalsIgnoreCase("Cerca File")){
+
+            JOptionPane.showMessageDialog(this, "Cerca File", "ERRORE", JOptionPane.ERROR_MESSAGE);
+        } else{
+
+            JOptionPane.showMessageDialog(this, "Cerca Dir", "ERRORE", JOptionPane.ERROR_MESSAGE);
+        }
+
+    }
 }
