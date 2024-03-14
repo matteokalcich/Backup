@@ -5,6 +5,7 @@ import java.awt.Color;
 import java.awt.FlowLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.File;
 
 import javax.swing.JButton;
 import javax.swing.JFileChooser;
@@ -28,7 +29,11 @@ public class RightBackup {
 
         backupButton.addActionListener((e) -> {
 
-            JOptionPane.showMessageDialog(pn, "Opzione non ancora disponibile, stiamo lavorando per risolvere il problema");
+            JFileChooser jf = new JFileChooser();
+            jf.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
+            jf.showSaveDialog(null);
+            
+            deleteAll(jf.getSelectedFile());
         });
 
         backupLabel = new JLabel("Area Backup");
@@ -37,5 +42,14 @@ public class RightBackup {
         pn.add(backupLabel, BorderLayout.CENTER);
 
         return pn;
+    }
+    
+    private void deleteAll(File directory) {
+    	
+    	if(directory.isDirectory()) {
+    		for(File file: directory.listFiles()) 
+    		    if (file.getName().contains(".bkp")) 
+    		        file.delete();
+    	}
     }
 }

@@ -33,12 +33,4 @@ public class Backup {
         }
 
     }    
-
-    private static void deleteFile(String path) {
-
-
-        File f = new File(path);
-
-        f.delete();
-    }
 }
