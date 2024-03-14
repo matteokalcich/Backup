@@ -14,6 +14,7 @@ public class LeftPanel extends JPanel implements ActionListener {
     private JTextField inputFileName;
 
     private JTextField inputDirName;
+    
     public LeftPanel(){
 
         evento = HandlerButtonEvent.createInstance();
@@ -70,11 +71,9 @@ public class LeftPanel extends JPanel implements ActionListener {
 
         JButton dirBtn = new JButton("Cerca Directory");
         dirBtn.addActionListener(this);
-
-        pan.add(dirBtn, BorderLayout.EAST);
-
+        
         return pan;
-
+        
     }
 
 
