@@ -1,51 +1,53 @@
 package ui;
 
+import event.HandlerButtonEvent;
+
 import javax.swing.*;
-import javax.swing.event.AncestorListener;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class LeftPanel extends JPanel implements ActionListener {
 
-    private JLabel fileName;
-    private JLabel dirName;
+    private final HandlerButtonEvent evento;
 
     private JTextField inputFileName;
 
     private JTextField inputDirName;
     public LeftPanel(){
 
+        evento = HandlerButtonEvent.createInstance();
 
-        this.setLayout(new GridLayout(2, 1));
+        this.setLayout(new GridLayout(3, 1));
 
-        JButton dirBtn = new JButton("Cerca directory");
-        this.add(fileComponent());
+        JLabel benvenuto = new JLabel("<html><em>Ciao, benvenuto nel programma di backup</em><br></br></html>");
 
-        dirBtn.addActionListener(this);
+        this.add(benvenuto);
 
-        this.add(dirComponent());
+        JSplitPane pan = new JSplitPane(JSplitPane.VERTICAL_SPLIT, fileComponent(), dirComponent());
 
-        this.add(dirBtn);
+        this.add(pan);
+
+
     }
 
     private JPanel fileComponent(){
 
         JPanel pan = new JPanel();
 
-        pan.setLayout(new FlowLayout());
+        pan.setLayout(new BorderLayout());
 
-        this.fileName = new JLabel("Enter file name");
+        JLabel fileName = new JLabel("Enter file name");
 
-        pan.add(this.fileName);
+        pan.add(fileName, BorderLayout.NORTH);
 
         this.inputFileName = new JTextField("<path to the file>");
         this.inputFileName.setEditable(false);
 
-        pan.add(this.inputFileName);
+        pan.add(this.inputFileName, BorderLayout.CENTER);
 
         JButton fileBtn = new JButton("Cerca file");
-        this.add(fileBtn);
+        pan.add(fileBtn, BorderLayout.EAST);
         fileBtn.addActionListener(this);
 
         return pan;
@@ -55,14 +57,21 @@ public class LeftPanel extends JPanel implements ActionListener {
 
         JPanel pan = new JPanel();
 
-        this.dirName = new JLabel("Enter destination directory");
+        pan.setLayout(new BorderLayout());
 
-        pan.add(this.dirName);
+        JLabel dirName = new JLabel("Enter destination directory");
+
+        pan.add(dirName, BorderLayout.NORTH);
 
         this.inputDirName = new JTextField("<path to the directory>");
         this.inputDirName.setEditable(false);
 
-        pan.add(this.inputDirName);
+        pan.add(this.inputDirName, BorderLayout.CENTER);
+
+        JButton dirBtn = new JButton("Cerca Directory");
+        dirBtn.addActionListener(this);
+
+        pan.add(dirBtn, BorderLayout.EAST);
 
         return pan;
 
@@ -74,10 +83,11 @@ public class LeftPanel extends JPanel implements ActionListener {
 
         if(e.getActionCommand().equalsIgnoreCase("Cerca File")){
 
-            JOptionPane.showMessageDialog(this, "Cerca File", "ERRORE", JOptionPane.ERROR_MESSAGE);
-        } else{
+            inputFileName.setText(evento.filePath());
 
-            JOptionPane.showMessageDialog(this, "Cerca Dir", "ERRORE", JOptionPane.ERROR_MESSAGE);
+        } else if(e.getActionCommand().equalsIgnoreCase("Cerca Directory")){
+
+            inputDirName.setText(evento.dirPath());
         }
 
     }
