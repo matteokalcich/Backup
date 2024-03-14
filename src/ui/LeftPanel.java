@@ -71,6 +71,8 @@ public class LeftPanel extends JPanel implements ActionListener {
 
         JButton dirBtn = new JButton("Cerca Directory");
         dirBtn.addActionListener(this);
+
+        pan.add(dirBtn, BorderLayout.EAST);
         
         return pan;
         
