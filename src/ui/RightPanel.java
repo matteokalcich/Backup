@@ -1,6 +1,9 @@
 package ui;
 
 import javax.swing.*;
+
+import business.BizBackup;
+
 import java.awt.*;
 
 public class RightPanel extends JPanel {
@@ -17,9 +20,7 @@ public class RightPanel extends JPanel {
 
         this.add(deleteBtn, BorderLayout.NORTH);
 
-        this.lb = new JLabel();
-
-        this.lb.setText("Non so cosa fare");
+        this.lb = new JLabel("Ciao");
 
         this.add(lb, BorderLayout.CENTER);
     }

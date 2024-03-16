@@ -1,14 +1,17 @@
 package event;
 
 import business.BizBackup;
+import ui.RightPanel;
 
 import javax.swing.*;
 import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.IOException;
 
 public class HandlerButtonEvent {
 
-    private String path;
-    private File file;
+    private String sourcePathFile;
+    private String destinationPath;
     private int returnVal;
     private static HandlerButtonEvent event;
 
@@ -27,7 +30,7 @@ public class HandlerButtonEvent {
         }
     }
 
-    public String filePath(){
+    public String filePath() {
 
         JFileChooser fileChooser = new JFileChooser();
 
@@ -39,9 +42,9 @@ public class HandlerButtonEvent {
 
         if(returnVal == JFileChooser.APPROVE_OPTION) {
 
-            file = fileChooser.getSelectedFile();
+            sourcePathFile = fileChooser.getSelectedFile().toString();
 
-            return fileChooser.getSelectedFile().toString();
+            return sourcePathFile;
 
         } else {
 
@@ -61,9 +64,9 @@ public class HandlerButtonEvent {
 
         if(returnVal == JFileChooser.APPROVE_OPTION) {
 
-            path = fileChooser.getSelectedFile().toString();
+            destinationPath = fileChooser.getSelectedFile().toString();
 
-            return fileChooser.getSelectedFile().toString();
+            return destinationPath;
 
         } else {
 
@@ -79,6 +82,22 @@ public class HandlerButtonEvent {
 
     public void backup() {
 
-        BizBackup.creaFile(path, file);
+        try{
+
+            BizBackup.copyFileWithFormat(sourcePathFile, destinationPath);
+
+        } catch(FileNotFoundException e){
+
+            JOptionPane.showMessageDialog(null, "Impossibile leggere il file selezionato, file non esistente!", "Errore", JOptionPane.ERROR_MESSAGE);
+            return;
+
+
+        } catch(IOException e){
+
+            JOptionPane.showMessageDialog(null, "Si e' verificato un errore!", "Errore", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+
+
     }
 }
