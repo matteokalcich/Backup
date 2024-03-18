@@ -16,7 +16,7 @@ public class RightPanel extends JPanel {
 
         this.setLayout(new BorderLayout());
 
-        deleteBtn = new JButton("Delete!");
+        this.deleteBtn = new JButton("Delete!");
 
         this.add(deleteBtn, BorderLayout.NORTH);
 
