@@ -15,6 +15,8 @@ public class HandlerButtonEvent {
     private int returnVal;
     private static HandlerButtonEvent event;
 
+    private HandlerButtonEvent(){}
+
     public static HandlerButtonEvent createInstance(){
 
         if(event == null){

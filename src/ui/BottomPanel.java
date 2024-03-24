@@ -1,8 +1,9 @@
 package ui;
 
+import javax.swing.*;
+
 import event.HandlerButtonEvent;
 
-import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
